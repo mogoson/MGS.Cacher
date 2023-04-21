@@ -17,17 +17,17 @@ namespace MGS.Cachers
     /// <summary>
     /// Cache for data.
     /// </summary>
-    public struct Cache<T>
+    public readonly struct Cache<T>
     {
         /// <summary>
         /// Content of cache.
         /// </summary>
-        public T content;
+        public T Content { get; }
 
         /// <summary>
         /// Stamp of cache.
         /// </summary>
-        public DateTime stamp;
+        public DateTime Stamp { get; }
 
         /// <summary>
         /// Constructor.
@@ -35,8 +35,8 @@ namespace MGS.Cachers
         /// <param name="content">Content of cache.</param>
         public Cache(T content)
         {
-            this.content = content;
-            stamp = DateTime.Now;
+            Content = content;
+            Stamp = DateTime.Now;
         }
 
         /// <summary>
@@ -46,8 +46,8 @@ namespace MGS.Cachers
         /// <param name="stamp">Stamp of cache.</param>
         public Cache(T content, DateTime stamp)
         {
-            this.content = content;
-            this.stamp = stamp;
+            Content = content;
+            Stamp = stamp;
         }
     }
 }

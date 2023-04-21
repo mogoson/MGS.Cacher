@@ -45,7 +45,7 @@ namespace MGS.Cachers
             var isValid = base.CheckCacheIsValid(cache);
             if (isValid)
             {
-                var ms = (DateTime.Now - cache.stamp).TotalMilliseconds;
+                var ms = (DateTime.Now - cache.Stamp).TotalMilliseconds;
                 isValid = ms <= Timeout;
             }
             return isValid;

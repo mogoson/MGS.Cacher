@@ -74,11 +74,11 @@ namespace MGS.Cachers
                 var cache = caches[key];
                 if (CheckCacheIsValid(cache))
                 {
-                    return cache.content;
+                    return cache.Content;
                 }
                 Remove(key);
             }
-            return default(T);
+            return default;
         }
 
         /// <summary>
