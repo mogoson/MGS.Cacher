@@ -3,9 +3,10 @@
 # Summary
 - Cacher for data.
 
-# Environment
-- .net framework.
-- Unity 5.0.
+## Ability
+
+- Cacher.
+- TimeoutCacher.
 
 # Usage
 - Create instance of the class Cacher<T> or TimeoutCacher<T>
@@ -14,4 +15,4 @@
 
 ---
 
-Copyright 2024 Mogoson.	mogoon@outlook.com
+Copyright 2025 Mogoson.	mogoon@outlook.com
