@@ -1,7 +1,16 @@
 {
-    "description": "Cacher for cache data",
-    "displayName": "Cacher",
     "name": "com.mgs.cacher",
+    "version": "1.0.0",
+    "displayName": "Cacher",
+    "description": "Cacher for cache data",
     "unity": "2021.3",
-    "version": "1.0.0"
+    "keywords": [
+        "cacher",
+        "timeout"
+    ],
+    "author": {
+        "name": "Mogoson",
+        "email": "mogoson@outlook.com",
+        "url": "https://github.com/mogoson"
+    }
 }
