@@ -19,7 +19,7 @@ namespace Tests
         [TearDown]
         public void TearDown()
         {
-            cacher.Dispose();
+            cacher.Clear();
             cacher = null;
         }
 

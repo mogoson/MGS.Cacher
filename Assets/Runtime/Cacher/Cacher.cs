@@ -99,15 +99,6 @@ namespace MGS.Cachers
         }
 
         /// <summary>
-        /// Dispose all resources.
-        /// </summary>
-        public void Dispose()
-        {
-            Clear();
-            caches = null;
-        }
-
-        /// <summary>
         /// Check the cache is valid?
         /// </summary>
         /// <param name="cache"></param>

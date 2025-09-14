@@ -10,15 +10,13 @@
  *  Description  :  Initial development version.
  *************************************************************************/
 
-using System;
-
 namespace MGS.Cachers
 {
     /// <summary>
     /// Interface of cacher.
     /// </summary>
     /// <typeparam name="T">Type of cache data.</typeparam>
-    public interface ICacher<T> : IDisposable
+    public interface ICacher<T>
     {
         /// <summary>
         /// Max count of caches.
