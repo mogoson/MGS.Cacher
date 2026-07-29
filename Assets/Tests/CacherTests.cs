@@ -1,4 +1,4 @@
-﻿using MGS.Cachers;
+﻿using MGS.Cacher;
 using NUnit.Framework;
 
 namespace Tests
@@ -21,25 +21,25 @@ namespace Tests
         }
 
         [Test]
-        public void TestSet()
+        public void TestAdd()
         {
-            cacher.Set("0", "0");//will discard.
-            cacher.Set("1", "1");
-            cacher.Set("2", "2");
-            cacher.Set("3", "3");
-            Assert.AreEqual(3, cacher.Count);
+            cacher.Add("0", "0");//will discard.
+            cacher.Add("1", "1");
+            cacher.Add("2", "2");
+            cacher.Add("3", "3");
+            Assert.AreEqual(cacher.Find("0"), null);
         }
 
         [Test]
-        public void TestGet()
+        public void TestFind()
         {
-            TestSet();
+            TestAdd();
 
-            var value0 = cacher.Get("0");//Already discard.
-            Assert.AreEqual(null, value0);
+            var value0 = cacher.Find("0");//Already discard.
+            Assert.AreEqual(value0, null);
 
-            var value3 = cacher.Get("3");
-            Assert.AreEqual("3", value3);
+            var value3 = cacher.Find("3");
+            Assert.AreEqual(value3, "3");
         }
     }
 }

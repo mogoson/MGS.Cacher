@@ -12,100 +12,54 @@
 
 using System.Collections.Generic;
 
-namespace MGS.Cachers
+namespace MGS.Cacher
 {
-    /// <summary>
-    /// Cacher for cache data.
-    /// </summary>
-    /// <typeparam name="T">Type of cache data.</typeparam>
     public class Cacher<T> : ICacher<T>
     {
-        /// <summary>
-        /// Max count of caches.
-        /// </summary>
-        public int MaxCache { set; get; }
+        protected Dictionary<string, T> caches = new();
+        protected int capacity;
 
-        /// <summary>
-        /// Count of current cache.
-        /// </summary>
-        public int Count { get { return caches.Count; } }
-
-        /// <summary>
-        /// Cache datas.
-        /// </summary>
-        protected Dictionary<string, Cache<T>> caches = new Dictionary<string, Cache<T>>();
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        /// <param name="maxCache">Max count of caches.</param>
-        public Cacher(int maxCache = 100)
+        public Cacher(int capacity = 100)
         {
-            MaxCache = maxCache;
+            this.capacity = capacity;
         }
 
-        /// <summary>
-        /// Set cache data.
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
-        public void Set(string key, T value)
+        public virtual void Add(string key, T value)
         {
-            var keys = caches.Keys.GetEnumerator();
-            while (caches.Count >= MaxCache)
-            {
-                keys.MoveNext();
-                caches.Remove(keys.Current);
-            }
-
-            var cache = new Cache<T>(value);
-            caches[key] = cache;
+            TrimExcess(capacity - 1);
+            caches[key] = value;
         }
 
-        /// <summary>
-        /// Get cache data.
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public T Get(string key)
+        public virtual T Find(string key)
         {
             if (caches.ContainsKey(key))
             {
-                var cache = caches[key];
-                if (CheckCacheIsValid(cache))
-                {
-                    return cache.Content;
-                }
-                Remove(key);
+                return caches[key];
             }
             return default;
         }
 
-        /// <summary>
-        /// Remove cache data.
-        /// </summary>
-        /// <param name="key"></param>
-        public void Remove(string key)
+        public virtual void Delete(string key)
         {
             caches.Remove(key);
         }
 
-        /// <summary>
-        /// Clear all caches.
-        /// </summary>
-        public void Clear()
+        public virtual void Clear()
         {
             caches.Clear();
         }
 
-        /// <summary>
-        /// Check the cache is valid?
-        /// </summary>
-        /// <param name="cache"></param>
-        /// <returns></returns>
-        protected virtual bool CheckCacheIsValid(Cache<T> cache)
+        protected void TrimExcess(int count)
         {
-            return true;
+            if (caches.Count > count)
+            {
+                var keys = caches.Keys.GetEnumerator();
+                while (caches.Count > count)
+                {
+                    keys.MoveNext();
+                    caches.Remove(keys.Current);
+                }
+            }
         }
     }
 }

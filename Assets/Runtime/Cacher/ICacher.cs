@@ -10,47 +10,16 @@
  *  Description  :  Initial development version.
  *************************************************************************/
 
-namespace MGS.Cachers
+namespace MGS.Cacher
 {
-    /// <summary>
-    /// Interface of cacher.
-    /// </summary>
-    /// <typeparam name="T">Type of cache data.</typeparam>
     public interface ICacher<T>
     {
-        /// <summary>
-        /// Max count of caches.
-        /// </summary>
-        int MaxCache { set; get; }
+        void Add(string key, T value);
 
-        /// <summary>
-        /// Count of current cache.
-        /// </summary>
-        int Count { get; }
+        T Find(string key);
 
-        /// <summary>
-        /// Set cache data.
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
-        void Set(string key, T value);
+        void Delete(string key);
 
-        /// <summary>
-        /// Get cache data.
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        T Get(string key);
-
-        /// <summary>
-        /// Remove cache data.
-        /// </summary>
-        /// <param name="key"></param>
-        void Remove(string key);
-
-        /// <summary>
-        /// Clear all caches.
-        /// </summary>
         void Clear();
     }
 }

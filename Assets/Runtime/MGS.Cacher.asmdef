@@ -1,0 +1,16 @@
+{
+    "name": "MGS.Cacher",
+    "rootNamespace": "MGS.Cacher",
+    "references": [
+        "GUID:068fb68b18909ba40a172c72cb07338d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -6,22 +6,24 @@
 
 ## Ability
 
-- Cacher.
-- TimeoutCacher.
+- Cacher<T>.
+- FileCacher.
 
 ## Install
 
 - Unity --> Window --> Package Manager --> "+" --> Add package from git URL...
 
   ```text
+  https://github.com/mogoson/MGS.IO.git?path=/Assets
   https://github.com/mogoson/MGS.Cacher.git?path=/Assets
   ```
 
 # Usage
-- Create instance of the class Cacher<T> or TimeoutCacher<T>
-- Set cache with key and value.
-- Get cache by key.
+- Create instance of the class Cacher<T> or FileCacher.
+- Add cache with key and value.
+- Find cache by key.
+- Delete cache by key.
 
 ---
 
-Copyright © 2025 Mogoson.	mogoson@outlook.com
+Copyright © 2026 Mogoson.	mogoson@outlook.com
